@@ -1,0 +1,26 @@
+# Despliegue de servicios multimedia.
+
+## Ejercicio 1: Primeros pasos en react native.
+
+Este ejercicio ha sido bastante guiado. No he tenido ningún probema para 
+desplegar la aplicación por defecto. En cuanto al ejercicio adicional del
+final, lo he visto bastante claro en el fichero que se especificaba en la
+app de ejemplo aunque todavía no entienda la sintaxis en su totalidad.
+
+## Ejercicio 2: Componentes React Native.
+
+He pasado la mayor parte de mi tiempo con este ejercicio tratando de averiguar
+la estructura de la aplicación. App.js instancia Campobase que instancia Calendario.
+Dentro de Calendario se itera sobre los valores en excursiones.js mediante
+FlatList y estos se muestran mediante List.Item. La bibliografía ha sido un 
+recurso esencial para entender lo que estaba haciendo.
+
+Por otra parte, la imágen especificada para actuar como icono (40años.png) está 
+dañada de algún modo. Al principio pensaba que era un problema del programa
+interpretando la 'ñ', pero no podía renombrar el archivo desde vsc
+
+
+0. Entendiendo la estructura
+1. documentacion
+2. Imagen danyada
+
