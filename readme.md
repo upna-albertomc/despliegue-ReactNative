@@ -46,3 +46,18 @@ modularidad.
 En cuanto a copiar y ejecutar el código, lo único extra que necesité hacer fue
 incluir onPress() (la función definida en DetalleExcursión y enviada a 
 Calendario) en la declaración de esta última.
+
+## Ejercicio 3
+
+He tenido un problema instalando los paquetes necesarios, fetch failed. No he encontrado
+mucha información online. En la mayoría de los casos es un error que se manifesta al iniciar
+el proyecto cuando las dependencias están desactualizadas. Por suerte, intenté iniciar el 
+proyecto a modo de troubleshooting y después de "reiniciarlo" las instalaciones procedieron
+sin problema.
+
+Algo que me sorprendió de la aplicación fueron los headers automáticos. En parte porque el 
+botón de retorno no es el mismo en mi telefono que en las imágenes en la guia. Asumo que es cosa de versiones o de estilos. Cuando lo vi por primera vez, tampoco entendía la forma de 
+navegación en stack, por lo que me sorprendía que no hubiera un botón similar en la página 
+principal.
+
+Entender el traslado de los datos es la parte más dificil de este ejercicio. No por la conexión en sí, si no por lo abstracto de la referencia. Calendario manda el id del elemento seleccionado. En Detalle, este id se mapea al elemento siguiendo el mapa proporcionado por CampoBase.
