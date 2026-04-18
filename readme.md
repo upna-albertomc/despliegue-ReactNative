@@ -67,3 +67,13 @@ Entender el traslado de los datos es la parte más dificil de este ejercicio. No
 He encontrado el ejercicio muy similar en estructura al ejercicio 4, lo que ha facilitado mi entendimiento de la navegación.
 
 El problema que estoy teniendo estos últimos ejercicios es la sintaxis relativa a la asignación de variables. "Drawer" se define como una variable antes de la definición de clase, se le asigna una función de react y esta se parametriza dentro de etiquetas. No había visto esta mezcla de conceptos anteriormente y me está sobrecogiendo un poco.
+
+## Ejercicio 6. Ejercicio componentes y navegación
+
+He conseguido todo lo que se proponía en el ejercicio excepto la recuperación de la dirección de imágen del fichero "actividades.js". El resto de parámetros se han traducido bien, pero el programa dejaba de funcionar cuando intentaba hacer referencia a la actividad dentro de una etiqueta <image>.
+
+La mayor parte del tiempo en este ejercicio lo he pasado tratando de enlazar los nuevos componentes en campoBase. He sentido todo el rato que estaba sobrecomplicando las cosas. Un componente de clase que instancia un componente funcional en cada nuevo fichero. Este se importa a campoBase, donde se crea un handler que luego se instancia en su propia sentencia "return". He visto que es el mismo proceso que ya está implementado para el resto de componentes, así que no sospecho que esté mal, pero tiene que haber una forma más simple.
+
+Algunos problemas menores los he tenido tratando de encontrar la documentación correcta de los estilos de react frente a los de css. No sé muy bien hasta que punto los estilos de la aplicación tienen que igualar los presentes en las capturas, pero lo he intentado.
+
+Por último, la interacción entre ScrollView y FlatList me ha pillado desprevenido. Creo que era solo una warning que decía que no se deben incluir FlatList dentro de ScrollView. La aplicación parecía correr bien, pero aún así decidí cambiarlo para que no se quejara.

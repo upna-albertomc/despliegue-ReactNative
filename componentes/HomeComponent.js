@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, ImageBackground } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 import { EXCURSIONES } from '../comun/excursiones';
 import { CABECERAS } from '../comun/cabeceras';
@@ -17,10 +17,14 @@ function RenderItem({ item }) {
         titleStyle={styles.titulo}
         style={styles.cardTitle}
       />
-      <Card.Cover
+      <ImageBackground
         source={require('./imagenes/bisaurin.png')}
         style={styles.image}
-      />
+      >
+        <Text style={styles.imageText}>
+          {item.nombre}
+        </Text>
+      </ImageBackground>
       <Card.Content>
         <Text style={styles.descripcion}>
           {item.descripcion}
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 0,
+    height: 200,
   },
   descripcion: {
     marginTop: 20,
@@ -67,6 +72,12 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     alignItems: 'center',
+  },
+  imageText: {
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'chocolate',
   },
 });
 

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import { Card, Text } from 'react-native-paper';
 import { EXCURSIONES } from '../comun/excursiones';
 
@@ -14,10 +14,14 @@ function RenderExcursion(props) {
           titleStyle={styles.titulo}
           style={styles.cardTitle}
         />
-        <Card.Cover
+        <ImageBackground
           source={require('./imagenes/bisaurin.png')}
           style={styles.image}
-        />
+        >
+          <Text style={styles.imageText}>
+            {excursion.nombre}
+          </Text>
+        </ImageBackground>
         <Card.Content>
           <Text style={styles.descripcion}>
             {excursion.descripcion}
@@ -51,6 +55,7 @@ const styles = StyleSheet.create({
   },
   image: {
     marginHorizontal: 0,
+    height: 200,
   },
   descripcion: {
     marginTop: 20,
@@ -61,6 +66,12 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     alignItems: 'center',
+  },
+    imageText: {
+    fontSize: 30,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'chocolate',
   },
 });
 
