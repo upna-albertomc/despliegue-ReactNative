@@ -47,7 +47,7 @@ En cuanto a copiar y ejecutar el código, lo único extra que necesité hacer fu
 incluir onPress() (la función definida en DetalleExcursión y enviada a 
 Calendario) en la declaración de esta última.
 
-## Ejercicio 3
+## Ejercicio 4. Stack Navigation
 
 He tenido un problema instalando los paquetes necesarios, fetch failed. No he encontrado
 mucha información online. En la mayoría de los casos es un error que se manifesta al iniciar
@@ -61,3 +61,9 @@ navegación en stack, por lo que me sorprendía que no hubiera un botón similar
 principal.
 
 Entender el traslado de los datos es la parte más dificil de este ejercicio. No por la conexión en sí, si no por lo abstracto de la referencia. Calendario manda el id del elemento seleccionado. En Detalle, este id se mapea al elemento siguiendo el mapa proporcionado por CampoBase.
+
+## Ejercicio 5. Drawer Navigation
+
+He encontrado el ejercicio muy similar en estructura al ejercicio 4, lo que ha facilitado mi entendimiento de la navegación.
+
+El problema que estoy teniendo estos últimos ejercicios es la sintaxis relativa a la asignación de variables. "Drawer" se define como una variable antes de la definición de clase, se le asigna una función de react y esta se parametriza dentro de etiquetas. No había visto esta mezcla de conceptos anteriormente y me está sobrecogiendo un poco.
