@@ -5,6 +5,7 @@ import { EXCURSIONES } from '../comun/excursiones';
 import { ScrollView, FlatList} from 'react-native';
 import { COMENTARIOS } from '../comun/comentarios';
 import { Divider, IconButton } from 'react-native-paper';
+import { baseUrl, colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun.js'
 
 function RenderComentario(props) {
   const comentarios = props.comentarios;
@@ -42,7 +43,7 @@ function RenderExcursion(props) {
           style={styles.cardTitle}
         />
         <ImageBackground
-          source={require('./imagenes/bisaurin.png')}
+          source={{ uri: baseUrl + excursion.imagen }}
           style={styles.image}
         >
           <Text style={styles.imageText}>
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'chocolate',
+    color: 'white',
   },
   commentText: {
     fontSize: 15,

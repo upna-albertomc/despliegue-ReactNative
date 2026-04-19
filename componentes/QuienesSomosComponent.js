@@ -5,6 +5,7 @@ import { ACTIVIDADES } from '../comun/actividades';
 import { FlatList, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { List, Divider } from 'react-native-paper';
+import { baseUrl } from '../comun/comun.js'
 
 
 function Historia() {
@@ -55,10 +56,10 @@ class QuienesSomos extends Component {
                     description={item.descripcion}
                     titleNumberOfLines={0}
                     descriptionNumberOfLines={6}
-                    left={(props, item) => (
+                    left={(props) => (
                       <Image
                         
-                        source={require("./imagenes/bisaurin.png")}
+                        source={{uri: baseUrl + item.imagen}}
 
                         style={[props.style, styles.imagen]}
                         resizeMode="cover"

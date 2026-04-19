@@ -4,6 +4,7 @@ import { Card, Text } from 'react-native-paper';
 import { EXCURSIONES } from '../comun/excursiones';
 import { CABECERAS } from '../comun/cabeceras';
 import { ACTIVIDADES } from '../comun/actividades';
+import { baseUrl } from '../comun/comun.js'
 
 function RenderItem({ item }) {
   if (!item) {
@@ -18,7 +19,7 @@ function RenderItem({ item }) {
         style={styles.cardTitle}
       />
       <ImageBackground
-        source={require('./imagenes/bisaurin.png')}
+        source={{uri: baseUrl + item.imagen}}
         style={styles.image}
       >
         <Text style={styles.imageText}>
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'chocolate',
+    color: 'white',
   },
 });
 

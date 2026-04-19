@@ -86,4 +86,12 @@ Por otra parte, la falta de dirección me deja inseguro de dónde y cómo se deb
 
 En cuanto a los nuevos componentes, los he entendido intuitivamente bien, como una combinación de la sintaxis en javascript pasada por el filtro de react native al que ya me estoy acostumbrando.
 
+## Ejercicio 8. Servidor JSON
+
+Los cambios al código han sido tan tediosos como la refactoricación suele ser. Los conceptos son simples y la repetición ayuda.
+
+Con este nuevo modo de acceder a imágenes se me ha solucionado el problema del ejercicio 6, cuando no podía referenciar la imágen dentro de quienesSomos. Me ha resultado extraño, ya que todavía estoy cogiendo la url del fichero. Supongo que el problema estaba en recuperar la imágen aunque eso no fuera lo que indicaba el mensaje de error.
+
+Por otra parte, me sigo encontrando con una warning que lleva apareciendo desde el ejercicio 6. Dice que cada elemento en una lista necesita una clave única. De acuerdo con la documentación, los elementos tienen una propiedad key que he usado. Anteriormente solo me aparecía en la misma página quienesSomos, por lo que supuse que era una consecuencia lateral de algún otro error, pero lo he empezado a ver en otras partes de la aplicación.
+
 
