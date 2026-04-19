@@ -77,3 +77,13 @@ La mayor parte del tiempo en este ejercicio lo he pasado tratando de enlazar los
 Algunos problemas menores los he tenido tratando de encontrar la documentación correcta de los estilos de react frente a los de css. No sé muy bien hasta que punto los estilos de la aplicación tienen que igualar los presentes en las capturas, pero lo he intentado.
 
 Por último, la interacción entre ScrollView y FlatList me ha pillado desprevenido. Creo que era solo una warning que decía que no se deben incluir FlatList dentro de ScrollView. La aplicación parecía correr bien, pero aún así decidí cambiarlo para que no se quejara.
+
+## Ejercicio 7. Botones o iconos
+
+Esta estructura más de ejercicio me ha parecido instructiva, pero he tenido varios problemas. La mayor parte del tiempo la he pasado intentando encontrar el import correcto para DrawerActions. Conocía el problema mucho antes de poder encontrar la solución en internet. Me ha servido como un buen repaso pero me gustaría que hubiera sido más claro.
+
+Por otra parte, la falta de dirección me deja inseguro de dónde y cómo se deben implementar ciertas cosas. En la definición del fichero DetaleExcursiónComponent se ha añadido un import para FlatList. Sin embargo, yo he implementado la lista con una función map. No sé si el enunciado requería implementar FlatList o si era una sugerencia.
+
+En cuanto a los nuevos componentes, los he entendido intuitivamente bien, como una combinación de la sintaxis en javascript pasada por el filtro de react native al que ya me estoy acostumbrando.
+
+
