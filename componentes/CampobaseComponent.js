@@ -16,6 +16,15 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrawerActions } from '@react-navigation/native';
 import { colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun.js'
+import { connect } from 'react-redux';
+import { fetchExcursiones, fetchComentarios, fetchCabeceras, fetchActividades } from '../redux/ActionCreators';
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchExcursiones: () => dispatch(fetchExcursiones()),
+  fetchComentarios: () => dispatch(fetchComentarios()),
+  fetchCabeceras: () => dispatch(fetchCabeceras()),
+  fetchActividades: () => dispatch(fetchActividades()),
+})
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -64,6 +73,14 @@ class Campobase extends Component {
       excursiones: EXCURSIONES,
     };
   }
+
+  componentDidMount() {
+    this.props.fetchExcursiones();
+    this.props.fetchComentarios();
+    this.props.fetchCabeceras();
+    this.props.fetchActividades();
+  }
+
   menuHeaderOptions = (title, navigation) => ({
     title,
     headerLeft: () => (
@@ -287,4 +304,4 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 });
-export default Campobase;
+export default connect(null, mapDispatchToProps)(Campobase);
