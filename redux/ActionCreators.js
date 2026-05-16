@@ -32,6 +32,20 @@ export const addComentarios = (comentarios) => ({
     payload: comentarios
 });
 
+export const postComentario = (comentario) => (dispatch) => {
+    
+    const newComentario = {...comentario, "dia": new Date().toString()}
+    
+    setTimeout(() => {
+        dispatch(addComentario(newComentario));
+    }, 2000);
+};
+
+export const addComentario = (comentario) => ({
+    type: ActionTypes.ADD_COMENTARIO,
+    payload: comentario,
+})
+
 export const fetchExcursiones = () => (dispatch) => {
 
     dispatch(excursionesLoading());
@@ -145,7 +159,6 @@ export const addActividades = (actividades) => ({
 
 export const postFavorito = (excursionId) => (dispatch) => {
     setTimeout(() => {
-        console.log("addFavorito dispatched")
         dispatch(addFavorito(excursionId));
     }, 2000);
 };

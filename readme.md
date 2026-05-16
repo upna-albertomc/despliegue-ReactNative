@@ -102,3 +102,9 @@ Mas bien un ejercicio de repaso de las funciones de redux. Lo que más he aprend
 No estoy encantado con el grado de especificidad del enunciado. Mi mayor pérdida de tiempo fue olvidarme de importar la función postFavorito en detalleExcursión. La lista de tareas necesarias para establecer la conexión del final del apartado 2 es tan exhaustiva que me parecía imposible que quedará algo por decir y acabé releyendola una y otra vez sin pensar demasiado en el código.
 
 Tampoco he vuelto a las cuestiones del ejercicio pasado y no sé si debería. Estoy mucho más cómodo con redux ahora y me imagino que podré mejorar lo que hice la vez anterior, pero no sé si será un ejercicio formativo o trabajo repetitivo.
+
+##Ejercicio 11. Ejercicio formularios y modals con redux
+
+Todavía no tengo muy claro el proceso de importación de iconos. Seguramente sea porque he pasado demasiado tiempo con el icono del TextInput para que al final el problema fuera una errata. No sé muy bien por qué tengo el set de iconos que tengo (Material), ni dónde se encuentran, si se encuentran en mi ordenador o se recogen de internet.
+
+Por el resto, el ejercicio no ha sido muy distinto a las dos actividades anteriores. Para cuando llegué al apartado 2 ya había recogido los parámetros necesarioss en variables de estado y como lo implementé todo en una función, se me hacia pesado trabajar con un estado local. Lo acabé dejando y envié los datos que ya tenía. Colapsar el estado del modal en una función toggleModal(), por otra parte, es un cambio que me acabó ayudando mucho.
