@@ -2,6 +2,7 @@ import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../comun/comun';
 
 export const fetchComentarios = () => (dispatch) => {
+
     return fetch(baseUrl + 'comentarios')
     .then(response => {
         if (response.ok) {
@@ -140,4 +141,16 @@ export const actividadesFailed = (errmess) => ({
 export const addActividades = (actividades) => ({
     type: ActionTypes.ADD_ACTIVIDADES,
     payload: actividades
+});
+
+export const postFavorito = (excursionId) => (dispatch) => {
+    setTimeout(() => {
+        console.log("addFavorito dispatched")
+        dispatch(addFavorito(excursionId));
+    }, 2000);
+};
+
+export const addFavorito = (excursionId) => ({
+    type: ActionTypes.ADD_FAVORITO,
+    payload: excursionId
 });

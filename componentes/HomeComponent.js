@@ -5,52 +5,76 @@ import { EXCURSIONES } from '../comun/excursiones';
 import { CABECERAS } from '../comun/cabeceras';
 import { ACTIVIDADES } from '../comun/actividades';
 import { baseUrl } from '../comun/comun.js'
+import { IndicadorActividad } from './IndicadorActividadComponent.js';
+import { connect } from 'react-redux';
 
-function RenderItem({ item }) {
-  if (!item) {
-    return <View />;
+const mapStateToProps = (state) => {
+  return {
+    excursiones: state.excursiones
+  }
+}
+
+function RenderItem(props) {
+  const item = props.item;
+
+  if (props.isLoading) {
+    return(
+      <IndicadorActividad />
+    );
   }
 
-  return (
-    <Card style={styles.card}>
-      <Card.Title
-        title={item.nombre}
-        titleStyle={styles.titulo}
-        style={styles.cardTitle}
-      />
-      <ImageBackground
-        source={{uri: baseUrl + item.imagen}}
-        style={styles.image}
-      >
-        <Text style={styles.imageText}>
-          {item.nombre}
-        </Text>
-      </ImageBackground>
-      <Card.Content>
-        <Text style={styles.descripcion}>
-          {item.descripcion}
-        </Text>
-      </Card.Content>
-    </Card>
-  );
+
+  else if (props.errMess) {
+    return(
+      <View>
+        <Text>{props.errMess}</Text>
+      </View>
+    );
+  }
+
+  else {
+    return (
+      <Card style={styles.card}>
+        <Card.Title
+          title={item.nombre}
+          titleStyle={styles.titulo}
+          style={styles.cardTitle}
+        />
+        <ImageBackground
+          source={{uri: baseUrl + item.imagen}}
+          style={styles.image}
+        >
+          <Text style={styles.imageText}>
+            {item.nombre}
+          </Text>
+        </ImageBackground>
+        <Card.Content>
+          <Text style={styles.descripcion}>
+            {item.descripcion}
+          </Text>
+        </Card.Content>
+      </Card>
+    );
+  }
 }
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      excursiones: EXCURSIONES,
-      cabeceras: CABECERAS,
-      actividades: ACTIVIDADES,
-    };
-  }
 
   render() {
     return (
       <ScrollView>
-        <RenderItem item={this.state.cabeceras.filter((item) => item.destacado)[0]} />
-        <RenderItem item={this.state.excursiones.filter((item) => item.destacado)[0]} />
-        <RenderItem item={this.state.actividades.filter((item) => item.destacado)[0]} />
+        <RenderItem item={this.props.excursiones.excursiones.filter((excursion) => excursion.destacado)[0]} 
+                    isLoading={this.props.excursiones.isLoading}
+                    errMess={this.props.excursiones.errMess}
+          />
+        <RenderItem item={this.props.excursiones.excursiones.filter((excursion) => excursion.destacado)[0]} 
+                    isLoading={this.props.excursiones.isLoading}
+                    errMess={this.props.excursiones.errMess}
+          />
+        <RenderItem item={this.props.excursiones.excursiones.filter((excursion) => excursion.destacado)[0]} 
+                    isLoading={this.props.excursiones.isLoading}
+                    errMess={this.props.excursiones.errMess}
+          />
       </ScrollView>
     );
   }
@@ -82,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default connect(mapStateToProps)(Home);

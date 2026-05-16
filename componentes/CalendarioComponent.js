@@ -3,11 +3,19 @@ import { FlatList, View, Image, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { List, Divider } from 'react-native-paper';
 import { baseUrl } from '../comun/comun.js'
+import { IndicadorActividad } from './IndicadorActividadComponent.js';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  return {
+    excursiones: state.excursiones
+  }
+}
 
 class Calendario extends Component {
   render() {
     const { navigate } = this.props.navigation;
-
+    
     const renderCalendarioItem = ({ item }) => {
       return (
         <View>
@@ -32,16 +40,30 @@ class Calendario extends Component {
         </View>
       );
     };
+    if (this.props.excursiones.isLoading){
+      return(
+        <IndicadorActividad />
+      );
+    }
+    else if(this.props.excursiones.errMess){
+      return(
+        <View>
+          <Text>{props.errMess}</Text>
+        </View>
+      );
+    }
+    else{
+      return (
+        <SafeAreaView style={styles.container}>
+          <FlatList
+            data={this.props.excursiones.excursiones}
+            renderItem={renderCalendarioItem}
+            keyExtractor={(item) => item.id.toString()}
+          />
+        </SafeAreaView>
+      );
+    }
 
-    return (
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={this.props.excursiones}
-          renderItem={renderCalendarioItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      </SafeAreaView>
-    );
   }
 }
 
@@ -66,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Calendario;
+export default connect(mapStateToProps)(Calendario);

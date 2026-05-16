@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { List, Divider } from 'react-native-paper';
 import { baseUrl } from '../comun/comun.js'
 import { connect } from 'react-redux';
+import { IndicadorActividad } from './IndicadorActividadComponent.js';
 
 const mapStateToProps = (state) => {
   return {
@@ -31,48 +32,66 @@ function Historia() {
     );
 }
 
+function ActividadesYRecursos(props) {
+  const actividades = props.actividades;
+  if (actividades.isLoading) {
+    return(
+      <IndicadorActividad />
+    );
+  }
+  else if (actividades.errMess){
+    return(
+      <View>
+        <Text>{props.errMess}</Text>
+      </View>
+    );
+  }
+  else{
+    return(
+      <Card>
+        <Card.Title
+          title={tituloActividades}
+          titleStyle={styles.titulo}
+          style={styles.cardTitle}
+        />
+        <Card.Content>
+          <View>
+            {actividades.actividades.map(item => {
+              return(
+                <List.Item
+                  key={item.id}
+                  title={item.nombre}
+                  description={item.descripcion}
+                  titleNumberOfLines={0}
+                  descriptionNumberOfLines={6}
+                  left={(props) => (
+                    <Image            
+                      source={{uri: baseUrl + item.imagen}}
+                      style={[props.style, styles.imagen]}
+                      resizeMode="cover"
+                    />
+                  )}
+                  titleStyle={styles.titulo}
+                  descriptionStyle={styles.descripcion}
+                  contentStyle={styles.contenido}
+                />
+              )
+            })}
+          <Divider />
+          </View>
+        </Card.Content>
+      </Card>
+    )
+  }
+}
+
 class QuienesSomos extends Component {
 
-
   render() {
-  
     return (
       <ScrollView>
         <Historia key="-"/>
-        
-        <Card>
-          <Card.Title
-            title={tituloActividades}
-            titleStyle={styles.titulo}
-            style={styles.cardTitle}
-          />
-            <Card.Content>
-              {this.props.actividades.actividades.map((item) => (
-                <View>
-                  <List.Item
-                    key={item.id}
-                    title={item.nombre}
-                    description={item.descripcion}
-                    titleNumberOfLines={0}
-                    descriptionNumberOfLines={6}
-                    left={(props) => (
-                      <Image
-                        
-                        source={{uri: baseUrl + item.imagen}}
-
-                        style={[props.style, styles.imagen]}
-                        resizeMode="cover"
-                      />
-                    )}
-                    titleStyle={styles.titulo}
-                    descriptionStyle={styles.descripcion}
-                    contentStyle={styles.contenido}
-                  />
-                  <Divider />
-                </View>
-              ))}
-            </Card.Content>
-          </Card>
+        <ActividadesYRecursos actividades={this.props.actividades}/>
       </ScrollView>    
     );
   }

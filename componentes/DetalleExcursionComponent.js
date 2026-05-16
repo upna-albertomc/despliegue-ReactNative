@@ -6,6 +6,20 @@ import { ScrollView, FlatList} from 'react-native';
 import { COMENTARIOS } from '../comun/comentarios';
 import { Divider, IconButton } from 'react-native-paper';
 import { baseUrl, colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun.js'
+import { connect } from 'react-redux';
+import { postFavorito } from '../redux/ActionCreators.js';
+
+const mapStateToProps = (state) => {
+  return {
+    excursiones: state.excursiones,
+    favoritos: state.favoritos,
+    comentarios: state.comentarios,
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  postFavorito: (excursionId) => dispatch(postFavorito(excursionId))
+})
 
 function RenderComentario(props) {
   const comentarios = props.comentarios;
@@ -76,30 +90,22 @@ function RenderExcursion(props) {
 }
 
 class DetalleExcursion extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      excursiones: EXCURSIONES,
-      comentarios: COMENTARIOS,
-      favoritos: [],
-    };
-  }
 
   marcarFavorito(excursionId) {
-    this.setState({favoritos: this.state.favoritos.concat(excursionId)});
+    this.props.postFavorito(excursionId);
   }
 
-  render(){
+  render(){    
     const {excursionId} = this.props.route.params;
     return(
       <ScrollView>
         <RenderExcursion
-          excursion={this.state.excursiones[+excursionId]}
-          favorita={this.state.favoritos.some(el => el === excursionId)}
+          excursion={this.props.excursiones.excursiones[+excursionId]}
+          favorita={this.props.favoritos.favoritos.some(el => el === excursionId)}
           onPress={() => this.marcarFavorito(excursionId)}
         />
         <RenderComentario
-          comentarios={this.state.comentarios.filter((comentario) => comentario.excursionId === excursionId)}
+          comentarios={this.props.comentarios.comentarios.filter((comentario) => comentario.excursionId === excursionId)}
         />
       </ScrollView>
     );
@@ -146,4 +152,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DetalleExcursion;
+export default connect(mapStateToProps, mapDispatchToProps)(DetalleExcursion);

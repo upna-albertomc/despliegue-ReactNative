@@ -95,3 +95,10 @@ Con este nuevo modo de acceder a imágenes se me ha solucionado el problema del 
 Por otra parte, me sigo encontrando con una warning que lleva apareciendo desde el ejercicio 6. Dice que cada elemento en una lista necesita una clave única. De acuerdo con la documentación, los elementos tienen una propiedad key que he usado. Anteriormente solo me aparecía en la misma página quienesSomos, por lo que supuse que era una consecuencia lateral de algún otro error, pero lo he empezado a ver en otras partes de la aplicación.
 
 
+## Ejercicio 10. Activity indicator y addFavoritos
+
+Mas bien un ejercicio de repaso de las funciones de redux. Lo que más he aprendido este ejercicio han sido cuestiones relativas a javascript. Cómo hacer referencias a funciones anónimas o cómo actualizar un objeto inmutable.
+
+No estoy encantado con el grado de especificidad del enunciado. Mi mayor pérdida de tiempo fue olvidarme de importar la función postFavorito en detalleExcursión. La lista de tareas necesarias para establecer la conexión del final del apartado 2 es tan exhaustiva que me parecía imposible que quedará algo por decir y acabé releyendola una y otra vez sin pensar demasiado en el código.
+
+Tampoco he vuelto a las cuestiones del ejercicio pasado y no sé si debería. Estoy mucho más cómodo con redux ahora y me imagino que podré mejorar lo que hice la vez anterior, pero no sé si será un ejercicio formativo o trabajo repetitivo.
